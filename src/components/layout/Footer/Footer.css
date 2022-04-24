@@ -1,0 +1,10 @@
+.footer {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(6, 165, 165, 0.628);
+    height: 50px;
+}
+
+.nome-desenvolvedor {
+    font-weight: bolder;
+}

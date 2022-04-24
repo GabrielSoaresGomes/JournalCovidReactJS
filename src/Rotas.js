@@ -1,8 +1,11 @@
 import React from "react";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
+
 import Home from "./pages/Home";
 import Estados from './pages/Estados'
+
 import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
 
 const Rotas = () => {
     return (
@@ -15,6 +18,7 @@ const Rotas = () => {
                 <Route path="/estados" element={<Estados/>} />
 
             </Routes>
+            <Footer />
         </BrowserRouter>
 
     )
