@@ -1,7 +1,9 @@
 .container-footer-list {
     display: flex;
+    align-items: center;
 }
 
 .footer-list {
     display: flex;
+    flex-direction: column;
 }

@@ -1,5 +1,14 @@
+.link-footer {
+    text-decoration: none;
+    color: black;
+}
+
+.link-footer:hover {
+    color: blue;
+}
+
 .footer-list-item {
     list-style: none;
-    margin: 0;
+    margin: 4px;
     padding: 0;
 }

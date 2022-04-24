@@ -1,8 +1,10 @@
 import React from "react";
 
-const FooterListItem = ({texto}) => {
+import './FooterListItem.css'
+
+const FooterListItem = ({texto, simbolo="", destino="#/"}) => {
     return (
-        <li className="footer-list-item">{texto}</li>
+        <a href={destino} target="_blank" className="link-footer"><li className="footer-list-item">{simbolo} {texto}</li></a>
     )
 }
 
