@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 
 import Container from "../../components/layout/Container";
@@ -10,23 +10,42 @@ const Home = () => {
 
     const noticias = require('../../assets/noticias/noticias.json')
     const [maisVistas, setMaisVistas] = useState([])
+    const [maisCurtidas, setMaisCurtidas] = useState([])
+    const [maisRecentes, setMaisRecentes] = useState([])
 
-    const definirMaisVistas = () => {
-        let noticiasArray = []
-        for (let c = 0; c < 4; c++) {
-
+    function separarNoticias (ordenarPor, numeroNoticias=4) {
+        const noticiasArray = noticias.sort((a,b) => {
+            if (ordenarPor === "data") {
+                return new Date(b['data']) - new Date(a['data'])
+            }
+            return b[ordenarPor] - a[ordenarPor]
+        })
+        let novoArray = []
+        for (let c = 0; c < numeroNoticias; c++) {
+            novoArray.push(noticiasArray[c])
         }
+        switch (ordenarPor) {
+            case 'views': setMaisVistas(novoArray); break
+            case 'likes': setMaisCurtidas(novoArray); break
+            case 'data': setMaisRecentes(novoArray); break
+        }
+
     }
-    console.log(noticias)
+
+    useEffect(() => {
+        separarNoticias("views", 4)
+        separarNoticias("likes", 4)
+        separarNoticias("data", 4)
+
+
+    }, [])
 
     return (
         <Container>
             <H1 texto="HOME" />
-            <CardContainer containerName="Mais Vistas: ">
-                <Card imagem="https://via.placeholder.com/128x48"
-                title="Titulo" previa="Aqui vai ser um exemplo de alguma previa para a noticia"
-                views="23443" like="2443"/>
-            </CardContainer>
+            <CardContainer noticias={maisVistas} containerName="Mais Vistas: " />
+            <CardContainer noticias={maisCurtidas} containerName="Mais Curtidas: " />
+            <CardContainer noticias={maisRecentes} containerName="Mais Recentes: " />
         </Container>
     )
 }
