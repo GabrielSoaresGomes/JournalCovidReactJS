@@ -1,0 +1,13 @@
+.card-link {
+    text-decoration: none;
+    color: black;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: rgba(143, 172, 229, 0.63);
+    transition: .5s;
+}
+
+.card-link:hover {
+    background: rgba(93, 128, 197, 0.63);
+    color: white;
+}

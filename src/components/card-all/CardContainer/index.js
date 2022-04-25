@@ -11,7 +11,7 @@ const CardContainer = (props) => {
             <div className="card-container">
                 { props.noticias.map((noticia) => {
                     return(<Card key={noticia.id} imagem={noticia.imagem} title={noticia.titulo} data={noticia.data}
-                                 previa={noticia.previa} views={noticia.views} like={noticia.likes}  />)
+                                 previa={noticia.previa} views={noticia.views} like={noticia.likes} id={noticia.id}  />)
                 }) }
             </div>
         </div>
