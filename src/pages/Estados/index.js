@@ -22,7 +22,7 @@ const Estados = () => {
                     return(
                         <div key={estado.id} className="div-bandeira">
                             <img className="imagem-bandeira" src={estado.bandeira} alt={`Bandeira ${estado.nome} `} />
-                            <p>{estado.nome}</p>
+                            <p>{estado.nome}({estado.sigla})</p>
                         </div>
                     )
                 })}
