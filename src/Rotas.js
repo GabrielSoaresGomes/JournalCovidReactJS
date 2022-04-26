@@ -3,10 +3,11 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 import Home from "./pages/Home";
 import Estados from './pages/Estados'
+import Detalhes from "./pages/Detalhes";
+import NoticiasEstado from "./pages/NoticiasEstado";
 
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
-import Detalhes from "./pages/Detalhes";
 
 const Rotas = () => {
     return (
@@ -16,7 +17,8 @@ const Rotas = () => {
             <Routes>
 
                 <Route exact path="/" element={<Home/>} />
-                <Route path="/estados" element={<Estados/>} />
+                <Route exact path="/estados" element={<Estados/>} />
+                <Route path="/estados/:sigla" element={<NoticiasEstado/>} />
                 <Route path="/noticia/:id" element={<Detalhes/>} />
 
             </Routes>
