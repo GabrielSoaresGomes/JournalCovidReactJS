@@ -6,7 +6,7 @@ import CardLink from "./CardLink/CardLink";
 const Card = (props) => {
     return (
         <div className="card">
-            <div className="card-header"><img src={props.imagem} /></div>
+            <div className="card-header"><img src={props.imagem} alt="imagem do card" /></div>
             <div className="card-body">
                 <h3>{props.title}</h3>
                 <p>{props.previa}</p>

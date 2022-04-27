@@ -14,7 +14,7 @@ const Detalhes = (props) => {
     const getNoticia = (id) => {
         let noticias = require('../../assets/noticias/noticias.json')
         for (let item of noticias) {
-            if (item.id == id) {
+            if (item.id === id) {
                 return item
             }
         }
@@ -22,7 +22,7 @@ const Detalhes = (props) => {
     }
     useEffect(() => {
         setNoticia(getNoticia(id))
-    }, [])
+    }, [id])
 
 
     return (

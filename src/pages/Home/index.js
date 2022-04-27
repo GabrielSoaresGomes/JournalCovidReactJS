@@ -4,7 +4,6 @@ import React, {useState, useEffect} from 'react'
 import Container from "../../components/layout/Container";
 import H1 from '../../components/layout/Headings/H1'
 import CardContainer from "../../components/card-all/CardContainer";
-import Card from "../../components/card-all/Card";
 
 const Home = () => {
 
@@ -28,6 +27,8 @@ const Home = () => {
             case 'views': setMaisVistas(novoArray); break
             case 'likes': setMaisCurtidas(novoArray); break
             case 'data': setMaisRecentes(novoArray); break
+            default:
+                return
         }
 
     }
@@ -38,7 +39,7 @@ const Home = () => {
         separarNoticias("data", 4)
 
 
-    }, [])
+    })
 
     return (
         <Container>

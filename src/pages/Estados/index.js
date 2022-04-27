@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import { Link } from "react-router-dom";
 import Container from "../../components/layout/Container";
 
 import H1 from '../../components/layout/Headings/H1'
@@ -11,7 +12,7 @@ const Estados = () => {
 
     useEffect(() => {
         setEstados(jsonEstados)
-    }, [])
+    }, [jsonEstados])
 
 
     return (
@@ -20,10 +21,12 @@ const Estados = () => {
             <div className="container-bandeiras">
                 {estados.map((estado) => {
                     return(
-                        <div key={estado.id} className="div-bandeira">
-                            <img className="imagem-bandeira" src={estado.bandeira} alt={`Bandeira ${estado.nome} `} />
-                            <p>{estado.nome}({estado.sigla})</p>
-                        </div>
+                        <Link to={`/estados/${estado.sigla}`}>
+                            <div key={estado.id} className="div-bandeira">
+                                <img className="imagem-bandeira" src={estado.bandeira} alt={`Bandeira ${estado.nome} `} />
+                                <p>{estado.nome}({estado.sigla})</p>
+                            </div>
+                        </Link>
                     )
                 })}
             </div>
